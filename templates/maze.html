@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>Төөрдөг байшин</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { background: #0f172a; color: #fff; font-family: 'Poppins', sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
+        h2 { color: #38bdf8; margin-bottom: 10px; }
+        canvas { background: #1e293b; border-radius: 10px; border: 2px solid #475569; display: block; margin: 0 auto; }
+        .back { display: inline-block; margin-top: 15px; color: #94a3b8; text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🌀 Төөрдөг байшин</h2>
+        <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 10px;">Сумтай товчлууруудаар (Arrow keys) цэнхэр цэгийг ногоон гарц руу хүргэнэ үү!</p>
+        <canvas id="mazeCanvas" width="300" height="300"></canvas>
+        <br>
+        <a href="/" class="back">← Нүүр хуудас руу буцах</a>
+    </div>
+    <script>
+        const canvas = document.getElementById("mazeCanvas");
+        const ctx = canvas.getContext("2d");
+        
+        let x = 20, y = 20, size = 15;
+        let goalX = 260, goalY = 260;
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Зам/Хананы бүтэц (энгийн жишээ байшин)
+            ctx.fillStyle = "#334155";
+            ctx.fillRect(80, 0, 20, 200);
+            ctx.fillRect(160, 100, 20, 200);
+
+            // Зорилго (Гарц)
+            ctx.fillStyle = "#34d399";
+            ctx.fillRect(goalX, goalY, 25, 25);
+
+            // Тоглогч
+            ctx.fillStyle = "#38bdf8";
+            ctx.beginPath();
+            ctx.arc(x + size/2, y + size/2, size/2, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        window.addEventListener('keydown', (e) => {
+            let step = 10;
+            if(e.key === 'ArrowUp') y -= step;
+            if(e.key === 'ArrowDown') y += step;
+            if(e.key === 'ArrowLeft') x -= step;
+            if(e.key === 'ArrowRight') x += step;
+
+            // Хязгаарлалт
+            if(x < 0) x = 0;
+            if(y < 0) y = 0;
+            if(x > canvas.width - size) x = canvas.width - size;
+            if(y > canvas.height - size) y = canvas.height - size;
+
+            // Ялалт шалгах
+            if(Math.abs(x - goalX) < 15 && Math.abs(y - goalY) < 15) {
+                alert("🏆 Баяр хүргэе! Та төөрдөг байшингаас гарлаа!");
+                x = 20; y = 20;
+            }
+            draw();
+        });
+
+        draw();
+    </script>
+</body>
+</html>

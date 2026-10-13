@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>Мини Тоглоомын Портал</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body { background: linear-gradient(135deg, #0f172a, #1e1b4b, #311042); color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
+        h1 { font-size: 3rem; margin-bottom: 10px; background: linear-gradient(45deg, #38bdf8, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; }
+        p.subtitle { color: #94a3b8; margin-bottom: 40px; font-size: 1.1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; width: 100%; max-width: 1000px; }
+        .card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px; text-align: center; backdrop-filter: blur(12px); transition: 0.4s ease; cursor: pointer; text-decoration: none; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .card:hover { transform: translateY(-8px); background: rgba(255, 255, 255, 0.1); border-color: #38bdf8; box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2); }
+        .card h2 { font-size: 1.5rem; margin-bottom: 10px; color: #38bdf8; }
+        .card p { color: #cbd5e1; font-size: 0.95rem; }
+        .icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+    </style>
+</head>
+<body>
+    <h1>🎮 Мини Тоглоомын Портал</h1>
+    <p class="subtitle">Тоглоом сонгооджаргалтай цагийг өнгөрүүлээрэй!</p>
+    
+    <div class="grid">
+        <a href="/guess_number" class="card">
+            <span class="icon">🎯</span>
+            <h2>1. Санасан тоог таах</h2>
+            <p>1-ээс 100 хүртэлх тоог компьютер таахэд туслаарай.</p>
+        </a>
+        <a href="/rps" class="card">
+            <span class="icon">✂️</span>
+            <h2>2. Хайч, Чулуу, Даавуу</h2>
+            <p>Компьютерийн эсрэг сонголтоо хийж өрсөлдөөрэй.</p>
+        </a>
+        <a href="/memory" class="card">
+            <span class="icon">🧩</span>
+            <h2>3. Зураг / Эможи таах</h2>
+            <p>Санах ойн түргэн шалгах хөгжилтэй тоглоом.</p>
+        </a>
+        <a href="/fibonacci" class="card">
+            <span class="icon">🔢</span>
+            <h2>4. Фибоначчийн таавар</h2>
+            <p>Математикийн алдартай дарааллын бодлого таах.</p>
+        </a>
+        <a href="/maze" class="card">
+            <span class="icon">🌀</span>
+            <h2>5. Төөрдөг байшин</h2>
+            <p>Бяцхан төөрдөг байшингаар гарц олох тоглоом.</p>
+        </a>
+    </div>
+</body>
+</html>

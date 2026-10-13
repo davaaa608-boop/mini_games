@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>Санасан тоог таах</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { background: #0f172a; color: #fff; font-family: 'Poppins', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 400px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
+        h2 { color: #38bdf8; margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #475569; background: #1e293b; color: #fff; font-size: 1rem; margin-bottom: 15px; text-align: center; outline: none; }
+        button { width: 100%; padding: 12px; background: linear-gradient(45deg, #38bdf8, #6366f1); border: none; border-radius: 10px; color: white; font-weight: 600; font-size: 1rem; cursor: pointer; transition: 0.3s; }
+        button:hover { opacity: 0.9; transform: scale(1.02); }
+        .message { margin-top: 20px; font-size: 1.1rem; color: #facc15; }
+        .back { display: inline-block; margin-top: 20px; color: #94a3b8; text-decoration: none; font-size: 0.9rem; }
+        .back:hover { color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🎯 Санасан тоог таах</h2>
+        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px;">Компьютер 1-100 хооронд тоо санасан байна.</p>
+        <form method="POST">
+            <input type="number" name="guess" placeholder="Таах тоогоо бичнэ үү" required min="1" max="100">
+            <button type="submit">Таах</button>
+        </form>
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+        <br>
+        <a href="/" class="back">← Нүүр хуудас руу буцах</a>
+    </div>
+</body>
+</html>
